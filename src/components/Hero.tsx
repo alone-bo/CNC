@@ -36,9 +36,9 @@ export function Hero() {
           onError={() => setVideoFailed(true)}
         />
       )}
-      {/* Neutral charcoal overlay; slightly deeper on the text side for contrast */}
-      <div className="absolute inset-0 -z-10 bg-[#1b1c1e]/55" aria-hidden />
-      <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#161718]/75 via-[#161718]/35 to-transparent" aria-hidden />
+      {/* Neutral charcoal overlay; kept light so the workshop footage stays visible */}
+      {/* <div className="absolute inset-0 -z-10 " aria-hidden /> */}
+      <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#161718]/60 via-[#161718]/20 to-transparent" aria-hidden />
 
       <div className="flex flex-1 items-center">
         <Container className="pt-28 pb-12 lg:pt-32">

@@ -100,7 +100,7 @@ export function ChatWidget() {
         onClick={() => setChatOpen((v) => !v)}
         aria-label={chatOpen ? 'Close online support' : 'Open online support chat'}
         aria-expanded={chatOpen}
-        className="fixed right-4 bottom-[calc(80px+env(safe-area-inset-bottom))] z-[46] grid h-12 w-12 cursor-pointer place-items-center rounded-xl bg-accent text-white shadow-[0_12px_28px_-8px_rgba(255,138,36,0.75)] transition-transform hover:scale-105 hover:bg-accent-dark xl:bottom-6 xl:h-14 xl:w-14 xl:rounded-2xl"
+        className="fixed right-4 bottom-[calc(80px+env(safe-area-inset-bottom))] z-[46] grid h-12 w-12 cursor-pointer place-items-center rounded-xl bg-accent text-white shadow-[0_12px_28px_-8px_rgba(17,117,252,0.75)] transition-transform hover:scale-105 hover:bg-accent-dark xl:bottom-6 xl:h-14 xl:w-14 xl:rounded-2xl"
       >
         {chatOpen ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" strokeWidth={1.9} />}
       </button>
@@ -201,7 +201,7 @@ export function MobileCTA() {
         <button
           type="button"
           onClick={() => openQuote()}
-          className="h-12 cursor-pointer rounded-lg bg-accent text-sm font-semibold text-white shadow-[0_6px_16px_-8px_rgba(255,138,36,0.8)]"
+          className="h-12 cursor-pointer rounded-lg bg-accent text-sm font-semibold text-white shadow-[0_6px_16px_-8px_rgba(17,117,252,0.8)]"
         >
           Get a Quote
         </button>

@@ -1,6 +1,6 @@
 import { Boxes, ClipboardCheck, Gauge, Layers, ShieldCheck, Target } from 'lucide-react'
 import { cncFinishing } from '../data/cncMachining'
-import { genericServices, type GenericAdvantageIcon } from '../data/genericServices'
+import { genericServices, type GenericAdvantageIcon, type GenericServiceData } from '../data/genericServices'
 import { useUI } from '../lib/ui'
 import { Footer } from './Footer'
 import {
@@ -17,6 +17,7 @@ import {
   ServiceHero,
   SpecsSection,
   ProcessStepsSection,
+  TeamStagesSection,
 } from './ServiceDetailShared'
 
 const advantageIcons: Record<GenericAdvantageIcon, typeof Gauge> = {
@@ -30,8 +31,20 @@ const advantageIcons: Record<GenericAdvantageIcon, typeof Gauge> = {
 
 export function GenericServicePage({ slug }: { slug: string }) {
   const data = genericServices[slug]
-  const { openQuote } = useUI()
   if (!data) return null
+  return <ServiceDataView data={data} />
+}
+
+export function ServiceDataView({
+  data,
+  parentLabel = 'Services',
+  parentHref = '#/services',
+}: {
+  data: GenericServiceData
+  parentLabel?: string
+  parentHref?: string
+}) {
+  const { openQuote } = useUI()
 
   const quote = () =>
     openQuote({
@@ -53,7 +66,7 @@ export function GenericServicePage({ slug }: { slug: string }) {
         alt={data.hero.alt}
         onQuote={quote}
       />
-      <BreadcrumbBar label={data.breadcrumb} />
+      <BreadcrumbBar label={data.breadcrumb} parentLabel={parentLabel} parentHref={parentHref} />
 
       {data.capabilities.layout === 'carousel' ? (
         <CapabilityCarousel
@@ -144,6 +157,10 @@ export function GenericServicePage({ slug }: { slug: string }) {
       )}
 
       {data.explain && <ExplainerSection data={data.explain} />}
+
+      {data.team && (
+        <TeamStagesSection title={data.team.title} subtitle={data.team.subtitle} stages={data.team.stages} />
+      )}
 
       <ServiceFaqSection title={`${data.breadcrumb} FAQs`} items={data.faqs} />
 

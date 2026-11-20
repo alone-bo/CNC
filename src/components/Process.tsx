@@ -73,7 +73,7 @@ export function Process() {
       {/* Subtle diagonal geometry near the right edge */}
       <div className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-[45%] overflow-hidden" aria-hidden>
         <div className="absolute top-[8%] -right-[18%] h-[70%] w-[70%] rotate-[28deg] rounded-[48px] bg-accent/[0.05]" />
-        <div className="absolute top-[38%] -right-[8%] h-[55%] w-[40%] rotate-[28deg] rounded-[40px] bg-[#ff6b6b]/[0.04]" />
+        <div className="absolute top-[38%] -right-[8%] h-[55%] w-[40%] rotate-[28deg] rounded-[40px] bg-brand/[0.05]" />
         <div className="absolute -top-[10%] right-[22%] h-[30%] w-[18%] rotate-[28deg] rounded-[28px] bg-accent/[0.04]" />
       </div>
 
@@ -122,7 +122,7 @@ export function Process() {
                     style={{ '--stage-bg': isActive ? 'var(--color-accent)' : '#fff' } as CSSProperties}
                     className={`relative grid h-20 w-20 place-items-center rounded-full border-2 transition-all duration-300 ${
                       isActive
-                        ? 'scale-105 border-accent bg-accent text-white shadow-[0_14px_30px_-12px_rgba(255,138,36,0.8)]'
+                        ? 'scale-105 border-accent bg-accent text-white shadow-[0_14px_30px_-12px_rgba(17,117,252,0.8)]'
                         : 'border-line bg-white text-muted group-hover:border-accent/50 group-hover:text-accent'
                     }`}
                   >

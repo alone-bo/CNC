@@ -176,7 +176,7 @@ function CustomMachiningSection() {
               const Icon = benefitIcons[benefit.icon]
               return (
                 <div key={benefit.title}>
-                  <span className="grid h-12 w-12 place-items-center rounded-full bg-accent text-white shadow-[0_10px_22px_-12px_rgba(255,138,36,0.9)]">
+                  <span className="grid h-12 w-12 place-items-center rounded-full bg-accent text-white shadow-[0_10px_22px_-12px_rgba(17,117,252,0.9)]">
                     <Icon className="h-5 w-5" strokeWidth={2} />
                   </span>
                   <h3 className="mt-5 text-[16px] leading-snug font-bold text-ink">{benefit.title}</h3>

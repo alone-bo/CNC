@@ -4,7 +4,7 @@
 
 import { unsplash } from './content'
 import { millingApplications, millingMaterialGroups } from './cncMilling'
-import type { MaterialGroup } from '../components/ServiceDetailShared'
+import type { MaterialGroup, TeamStage } from '../components/ServiceDetailShared'
 
 export type GenericAdvantageIcon = 'clipboard' | 'layers' | 'gauge' | 'boxes' | 'shield' | 'target'
 
@@ -66,6 +66,11 @@ export type GenericServiceData = {
       image: string
       alt: string
     }
+  }
+  team?: {
+    title: string
+    subtitle: string
+    stages: TeamStage[]
   }
   faqs: { q: string; a: string }[]
   closing: { title: string; description: string; cta: string }

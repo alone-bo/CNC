@@ -41,10 +41,20 @@ export type Route =
   | { name: 'news-list' }
   | { name: 'news'; slug: string }
   | { name: 'industry'; slug: string }
+  | { name: 'industries-overview' }
   | { name: 'service'; slug: string }
   | { name: 'services-overview' }
+  | { name: 'solution'; slug: string }
+  | { name: 'solutions-overview' }
   | { name: 'cases' }
   | { name: 'case'; slug: string }
+  | { name: 'blogs' }
+  | { name: 'videos' }
+  | { name: 'about' }
+  | { name: 'testimonials' }
+  | { name: 'quality-assurance' }
+  | { name: 'faq' }
+  | { name: 'inquiry' }
   | { name: 'npi'; slug: string }
   | null
 
@@ -52,9 +62,17 @@ function parse(hash: string): Route {
   if (!hash.startsWith('#/')) return null
   const [section, slug] = hash.slice(2).split('/')
   if (section === 'news') return slug ? { name: 'news', slug } : { name: 'news-list' }
-  if (section === 'industries' && slug) return { name: 'industry', slug }
+  if (section === 'industries') return slug ? { name: 'industry', slug } : { name: 'industries-overview' }
   if (section === 'services') return slug ? { name: 'service', slug } : { name: 'services-overview' }
+  if (section === 'solutions') return slug ? { name: 'solution', slug } : { name: 'solutions-overview' }
   if (section === 'cases') return slug ? { name: 'case', slug } : { name: 'cases' }
+  if (section === 'blogs') return slug ? { name: 'news', slug } : { name: 'blogs' }
+  if (section === 'videos') return { name: 'videos' }
+  if (section === 'about') return { name: 'about' }
+  if (section === 'testimonials') return { name: 'testimonials' }
+  if (section === 'quality-assurance') return { name: 'quality-assurance' }
+  if (section === 'faq') return { name: 'faq' }
+  if (section === 'inquiry') return { name: 'inquiry' }
   if (section === 'npi' && slug) return { name: 'npi', slug }
   return null
 }

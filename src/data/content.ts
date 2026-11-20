@@ -36,12 +36,22 @@ export const media = {
   },
 }
 
-export const navItems = [
+export type NavItem = {
+  label: string
+  href: string
+  mega?: boolean
+  solutions?: boolean
+  industries?: boolean
+  resources?: boolean
+  about?: boolean
+}
+
+export const navItems: NavItem[] = [
   { label: 'Services', href: '#/services', mega: true },
-  { label: 'Solutions', href: '#process' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'Resources', href: '#news' },
-  { label: 'About', href: '#about' },
+  { label: 'Solutions', href: '#/solutions', solutions: true },
+  { label: 'Industries', href: '#/industries', industries: true },
+  { label: 'Resources', href: '#/blogs', resources: true },
+  { label: 'About', href: '#/about', about: true },
 ]
 
 export type Service = {
@@ -603,6 +613,8 @@ export type NewsItem = {
   image: string
   alt: string
   body: string[]
+  /** `blog` (default) feeds the Blogs page; `news` feeds the News page. */
+  kind?: 'blog' | 'news'
 }
 
 // Sample articles — replace with genuine EZHONG news.
@@ -652,6 +664,115 @@ export const news: NewsItem[] = [
       'This sample article is a placeholder. Replace it with genuine EZHONG content.',
     ],
   },
+  {
+    slug: 'dfm-checklist-machined-parts',
+    date: '2025-12-18',
+    category: 'Engineering',
+    title: 'The DFM Checklist We Run Before Every Machined Part',
+    summary:
+      'A practical pre-release review of tolerances, features, materials and finishes that prevents costly revisions once machining starts.',
+    image: unsplash('1581092580497-e0d23cbdf1dc', 1200),
+    alt: 'Engineer reviewing a machined component toolpath in CAD software',
+    body: [
+      'Most machining problems are decided before the first chip is cut. A structured DFM review looks at how each feature will be reached, held and measured, and flags anything that depends on a tolerance tighter than the process can hold economically.',
+      'The checklist covers datum strategy, tool access and corner radii, thin-wall stiffness, thread and hole standards, surface finish callouts and the sequence of operations. Where a requirement is unclear, we confirm the functional intent rather than quoting a tighter tolerance by default.',
+      'The result is fewer drawing revisions, fewer surprises at first article and a quotation that reflects the real manufacturing route. Send a drawing and our engineers will return annotated feedback before production begins.',
+    ],
+  },
+  {
+    slug: 'aluminum-alloys-compared',
+    date: '2025-11-20',
+    category: 'Materials',
+    title: '6061, 7075 or 5083? Choosing the Right Aluminum Alloy',
+    summary:
+      'How 6061-T6, 7075-T6 and 5083 compare on strength, machinability, corrosion resistance and cost — and where each belongs.',
+    image: unsplash('1769147339214-076740872485', 1200),
+    alt: 'Machined aluminum components resting on engineering drawings',
+    body: [
+      'Aluminum is not one material. 6061-T6 is the general-purpose choice for housings, brackets and fixtures: it machines cleanly, anodizes well and balances strength with cost.',
+      '7075-T6 offers significantly higher strength for aerospace and high-load components, but it is less weldable, more sensitive to stress corrosion and harder on tooling. 5083 is chosen for marine and welded structures where corrosion resistance matters more than machinability.',
+      'Material grade affects toolpath strategy, fixture design and finishing as much as unit cost. We review the application first, then recommend the alloy that meets the requirement without over-specifying it.',
+    ],
+  },
+  {
+    slug: 'cnc-machining-vs-3d-printing',
+    date: '2025-10-15',
+    category: 'Process Selection',
+    title: 'CNC Machining vs. 3D Printing: A Practical Selection Guide',
+    summary:
+      'When additive manufacturing wins, when subtractive wins, and what a combined production route looks like in practice.',
+    image: unsplash('1624841970647-87dce8628d72', 1200),
+    alt: 'Array of precision CNC-machined aluminum components with milled channels and ports',
+    body: [
+      '3D printing earns its place for complex internal channels, one-off form studies and parts that cannot be reached by a cutter. CNC machining remains the better choice when dimensional accuracy, surface quality, material properties and repeatability matter.',
+      'For low-volume functional prototypes, the decision often comes down to finishing and tolerance: printed parts may need secondary machining anyway. For production, machining usually wins on cost per part once geometry is accessible to standard tooling.',
+      'Many programs use both. A printed prototype validates form; machined or cast production parts follow once the design is stable. We quote both routes side by side when the choice is close.',
+    ],
+  },
+  {
+    slug: 'ezhong-expands-five-axis-capacity',
+    date: '2026-06-18',
+    category: 'Company News',
+    title: 'EZHONG Expands Five-Axis Machining Capacity',
+    summary:
+      'Two additional five-axis machining centers are now in production, increasing capacity for complex aluminum and titanium components.',
+    image: unsplash('1602664876866-d3b33b77756b', 1200),
+    alt: 'Five-axis cutting tool machining a complex sculpted metal part',
+    kind: 'news',
+    body: [
+      'EZHONG has commissioned two additional five-axis machining centers at its precision machining facility. The investment increases capacity for complex prismatic parts, thin-wall structures and contoured surfaces in aluminum, titanium and stainless steel.',
+      'The new cells include in-process probing and are integrated with the existing production scheduling and inspection workflow. Existing programs can be transferred without changing drawing requirements or inspection criteria.',
+      'Capacity is available for prototype and repeat production orders. Contact the engineering team with your part drawings for a manufacturing review and updated lead time.',
+    ],
+  },
+  {
+    slug: 'manufacturing-world-2026',
+    date: '2026-05-09',
+    category: 'Events',
+    title: 'Meet EZHONG at Manufacturing World 2026',
+    summary:
+      'Visit our team at booth A-12 to review drawings and discuss machining, finishing and production programs.',
+    image: unsplash('1521737604893-d14cc237f11d', 1200),
+    alt: 'EZHONG engineering team collaborating in the workshop',
+    kind: 'news',
+    body: [
+      'EZHONG will exhibit at Manufacturing World 2026, presenting its CNC machining, sheet metal, casting and finishing capabilities for industrial buyers and engineering teams.',
+      'The team will be available to review drawings, discuss material and tolerance requirements, and outline prototype-to-production routes. Samples of machined aluminum, titanium and stainless steel components will be on display.',
+      'Exhibition entry is free with registration. To arrange a meeting in advance, contact our sales team with your project details.',
+    ],
+  },
+  {
+    slug: 'iso-9001-recertification-2026',
+    date: '2026-04-02',
+    category: 'Quality',
+    title: 'EZHONG Completes ISO 9001:2015 Recertification',
+    summary:
+      'The facility has completed its annual ISO 9001:2015 surveillance audit and recertification for quality management.',
+    image: unsplash('1713371398479-4410ca153b1f', 1200),
+    alt: 'Dial indicator checking a precision machined round component',
+    kind: 'news',
+    body: [
+      'EZHONG has completed its ISO 9001:2015 recertification audit for quality management systems covering machining, fabrication, finishing and inspection.',
+      'The audit reviewed document control, supplier management, calibration, non-conformance handling and corrective action. No major non-conformities were raised.',
+      'Certification supports consistent process control and traceability for customers in medical, automotive, aerospace and industrial equipment programs. Certificates are available on request.',
+    ],
+  },
+  {
+    slug: 'new-surface-finishing-line',
+    date: '2026-03-21',
+    category: 'Operations',
+    title: 'New Surface Finishing Line Enters Production',
+    summary:
+      'A new anodizing and powder-coating line is now running, shortening finishing lead times for aluminum components.',
+    image: unsplash('1625465837903-0e4d77bcc467', 1200),
+    alt: 'Powder-coated black component with a durable satin finish',
+    kind: 'news',
+    body: [
+      'A new surface finishing line has entered production at EZHONG, adding anodizing, powder coating and media blasting capacity for machined components.',
+      'The line is configured for small and medium batches, with color matching, masking and inspection included in the standard workflow. Process parameters are documented per batch for traceability.',
+      'Combining machining and finishing under one roof reduces handling and transit time. Contact the team for finish samples or to add finishing to an existing machining order.',
+    ],
+  },
 ]
 
 export const footerGroups = [
@@ -664,20 +785,21 @@ export const footerGroups = [
     links: [
       { label: 'Materials', href: '#/services/cnc-machining' },
       { label: 'Surface Finishing', href: '#/services/cnc-machining' },
-      { label: 'Manufacturing Blog', href: '#/news' },
+      { label: 'Manufacturing Blog', href: '#/blogs' },
       { label: 'Case Studies', href: '#/cases' },
-      { label: 'News & Insights', href: '#news' },
-      { label: 'FAQ', href: '#process' },
+      { label: 'News & Insights', href: '#/news' },
+      { label: 'Videos', href: '#/videos' },
+      { label: 'FAQ', href: '#/faq' },
     ],
   },
   {
     title: 'About EZHONG',
     links: [
-      { label: 'About Us', href: '#about' },
+      { label: 'About Us', href: '#/about' },
       { label: 'Manufacturing Capabilities', href: '#services' },
-      { label: 'Quality Assurance', href: '#about' },
-      { label: 'Industries', href: '#industries' },
-      { label: 'Contact Us', href: '#contact' },
+      { label: 'Quality Assurance', href: '#/quality-assurance' },
+      { label: 'Industries', href: '#/industries' },
+      { label: 'Contact Us', href: '#/inquiry' },
       { label: 'Careers', href: '#contact' },
     ],
   },

@@ -326,9 +326,9 @@ function StabilityDiagram() {
         <rect x="40" y="120" width="140" height="130" rx="8" fill="#0d1b14" stroke="#a9bdb0" strokeWidth="1.6" />
         <rect x="62" y="142" width="96" height="86" rx="6" fill="none" stroke="#5b7064" strokeWidth="1" strokeDasharray="6 4" />
         <rect x="78" y="158" width="64" height="54" rx="4" fill="#12251b" stroke="#c8d6cd" strokeWidth="1.2" />
-        <path d="M52 186h28M52 206h28M52 226h28" stroke="#ffb066" strokeWidth="1.4" />
-        <path d="M44 186h6M44 206h6M44 226h6" stroke="#ffb066" strokeWidth="1.4" />
-        <text x="110" y="274" textAnchor="middle" fill="#ffb066" fontFamily="ui-monospace, monospace" fontSize="8.5">
+        <path d="M52 186h28M52 206h28M52 226h28" stroke="#7fb0ff" strokeWidth="1.4" />
+        <path d="M44 186h6M44 206h6M44 226h6" stroke="#7fb0ff" strokeWidth="1.4" />
+        <text x="110" y="274" textAnchor="middle" fill="#7fb0ff" fontFamily="ui-monospace, monospace" fontSize="8.5">
           CLAMP + STOCK
         </text>
 
@@ -343,7 +343,7 @@ function StabilityDiagram() {
             strokeWidth="1"
           />
         ))}
-        <path d="M252 142h-14v-14M348 142h14v-14M252 228h-14v14M348 228h14v14" stroke="#ffb066" strokeWidth="1.4" fill="none" />
+        <path d="M252 142h-14v-14M348 142h14v-14M252 228h-14v14M348 228h14v14" stroke="#7fb0ff" strokeWidth="1.4" fill="none" />
         <text x="300" y="274" textAnchor="middle" fill="#5fe39b" fontFamily="ui-monospace, monospace" fontSize="8.5">
           RESIDUAL STRESS RELEASED
         </text>
@@ -366,7 +366,7 @@ function StabilityDiagram() {
         <g stroke="#2a3c33" strokeWidth="1">
           <path d="M30 320H570" />
         </g>
-        <circle cx="40" cy="344" r="3" fill="#ffb066" />
+        <circle cx="40" cy="344" r="3" fill="#7fb0ff" />
         <text x="50" y="347" fill="#8fa398" fontFamily="ui-monospace, monospace" fontSize="8.5">
           Clamping / heat
         </text>

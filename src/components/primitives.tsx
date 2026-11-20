@@ -33,7 +33,7 @@ export function Logo({ tone = 'dark', className = '' }: { tone?: 'dark' | 'light
       <svg viewBox="0 0 40 40" className="h-9 w-9 shrink-0" aria-hidden>
         <rect width="40" height="40" rx="9" fill="#1175FC" />
         <path d="M11 10h18v4.5H16v3.25h11v4.5H16v3.25h13V30H11z" fill="#fff" />
-        <rect x="29" y="17.75" width="4" height="4.5" rx="1" fill="#FF8A24" />
+        <rect x="29" y="17.75" width="4" height="4.5" rx="1" fill="#9CC8FF" />
       </svg>
       <span className="flex flex-col leading-none">
         <span
@@ -58,7 +58,7 @@ export function Logo({ tone = 'dark', className = '' }: { tone?: 'dark' | 'light
 type BtnVariant = 'accent' | 'brand' | 'outline-light' | 'outline-accent' | 'outline-dark'
 
 const variants: Record<BtnVariant, string> = {
-  accent: 'bg-accent text-white hover:bg-accent-dark shadow-[0_6px_20px_-8px_rgba(255,138,36,0.7)]',
+  accent: 'bg-accent text-white hover:bg-accent-dark shadow-[0_6px_20px_-8px_rgba(17,117,252,0.65)]',
   brand: 'bg-brand text-white hover:bg-brand-dark',
   'outline-light': 'border border-white/50 text-white hover:bg-white hover:text-ink',
   'outline-accent': 'border border-accent bg-white text-accent hover:bg-accent hover:text-white',

@@ -30,7 +30,7 @@ function Meta({ item }: { item: NewsItem }) {
 }
 
 export function News() {
-  const [featured, ...rest] = news
+  const [featured, ...rest] = news.slice(0, 3)
 
   return (
     <section id="news" className="scroll-mt-16 py-20 lg:scroll-mt-20 lg:py-28">
@@ -42,7 +42,7 @@ export function News() {
               News &amp; Insights
             </h2>
           </div>
-          <ReadMorePill href="#/news" />
+          <ReadMorePill href="#/blogs" />
         </div>
 
         <div className="mt-12 grid gap-6 lg:mt-14 lg:grid-cols-[2fr_3fr]">

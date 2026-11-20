@@ -95,7 +95,15 @@ export function ServiceHero({
   )
 }
 
-export function BreadcrumbBar({ label }: { label: string }) {
+export function BreadcrumbBar({
+  label,
+  parentLabel = 'Services',
+  parentHref = '#/services',
+}: {
+  label: string
+  parentLabel?: string
+  parentHref?: string
+}) {
   return (
     <nav aria-label="Breadcrumb" className="border-b border-line bg-white">
       <DetailContainer>
@@ -109,8 +117,8 @@ export function BreadcrumbBar({ label }: { label: string }) {
             /
           </li>
           <li>
-            <a href="#/services" className="transition-colors hover:text-accent">
-              Services
+            <a href={parentHref} className="transition-colors hover:text-accent">
+              {parentLabel}
             </a>
           </li>
           <li aria-hidden className="text-muted/50">
@@ -898,7 +906,7 @@ export function DarkImageBanner({
         className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
       <div
-        className="absolute inset-0 -z-10 bg-linear-to-r from-[#060b10]/80 via-[#060b10]/65 to-[#060b10]/45"
+        className="absolute inset-0 -z-10 bg-linear-to-r from-[#060b10]/85 via-[#060b10]/70 to-[#060b10]/55"
         aria-hidden
       />
 

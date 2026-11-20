@@ -1,6 +1,12 @@
 import { useEffect, useRef } from 'react'
-import { ArrowLeft, ArrowRight, Calendar, Check } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
+import { AboutPage } from './AboutPage'
+import { FaqPage } from './FaqPage'
+import { InquiryPage } from './InquiryPage'
+import { QualityAssurancePage } from './QualityAssurancePage'
+import { TestimonialsPage } from './TestimonialsPage'
 import { caseStudies, findService, formatDate, industries, news, processStages, serviceCatalog } from '../data/content'
+import { industryDetails } from '../data/industryDetails'
 import { closeRoute, useEscape, useScrollLock, useUI, type Route } from '../lib/ui'
 import { Button, Container, Eyebrow, buttonClass } from './primitives'
 import { CncAluminumPage } from './CncAluminumPage'
@@ -9,8 +15,12 @@ import { CncMillingPage } from './CncMillingPage'
 import { GenericServicePage } from './GenericServicePage'
 import { genericServices } from '../data/genericServices'
 import { Footer } from './Footer'
-import { ReadMorePill } from './News'
+import { IndustryDetailPage } from './IndustryDetailPage'
+import { IndustriesOverview } from './IndustriesOverview'
+import { BlogsPage, CaseStudiesPage, NewsPage, VideosPage } from './ResourcePages'
 import { ServicesOverview } from './ServicesOverview'
+import { SolutionDetailPage } from './SolutionDetailPage'
+import { SolutionsOverview } from './SolutionsOverview'
 
 /** Lightweight detail pages for news, industries and services, layered over the homepage. */
 export function PageView({ route }: { route: Route }) {
@@ -24,10 +34,106 @@ export function PageView({ route }: { route: Route }) {
   }, [route])
   if (!route) return null
 
+  if (route.name === 'industries-overview') {
+    return (
+      <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
+        <IndustriesOverview />
+        <Footer />
+      </div>
+    )
+  }
+
+  if (route.name === 'industry' && industryDetails[route.slug]) {
+    return (
+      <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
+        <IndustryDetailPage slug={route.slug} />
+      </div>
+    )
+  }
+
+  if (route.name === 'solutions-overview') {
+    return (
+      <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
+        <SolutionsOverview />
+        <Footer />
+      </div>
+    )
+  }
+
+  if (route.name === 'solution') {
+    return (
+      <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
+        <SolutionDetailPage slug={route.slug} />
+      </div>
+    )
+  }
+
   if (route.name === 'services-overview') {
     return (
       <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
         <ServicesOverview />
+        <Footer />
+      </div>
+    )
+  }
+
+  if (route.name === 'about') {
+    return (
+      <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
+        <AboutPage />
+        <Footer />
+      </div>
+    )
+  }
+
+  if (route.name === 'testimonials') {
+    return (
+      <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
+        <TestimonialsPage />
+        <Footer />
+      </div>
+    )
+  }
+
+  if (route.name === 'quality-assurance') {
+    return (
+      <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
+        <QualityAssurancePage />
+        <Footer />
+      </div>
+    )
+  }
+
+  if (route.name === 'faq') {
+    return (
+      <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
+        <FaqPage />
+        <Footer />
+      </div>
+    )
+  }
+
+  if (route.name === 'inquiry') {
+    return (
+      <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
+        <InquiryPage />
+        <Footer />
+      </div>
+    )
+  }
+
+  if (route.name === 'blogs' || route.name === 'news-list' || route.name === 'cases' || route.name === 'videos') {
+    const Page =
+      route.name === 'blogs'
+        ? BlogsPage
+        : route.name === 'news-list'
+          ? NewsPage
+          : route.name === 'cases'
+            ? CaseStudiesPage
+            : VideosPage
+    return (
+      <div ref={ref} className="animate-fade-in fixed inset-0 z-45 overflow-y-auto bg-white pt-16 lg:pt-20">
+        <Page />
         <Footer />
       </div>
     )
@@ -77,14 +183,13 @@ export function PageView({ route }: { route: Route }) {
         </button>
       </Container>
       <div className="pb-28 lg:pb-24">
-        {route.name === 'news-list' && <NewsList />}
         {route.name === 'news' && <Article slug={route.slug} />}
         {route.name === 'industry' && <IndustryPage slug={route.slug} />}
         {route.name === 'service' && <ServicePage slug={route.slug} />}
-        {route.name === 'cases' && <CaseList />}
         {route.name === 'case' && <CasePage slug={route.slug} />}
         {route.name === 'npi' && <NpiPage slug={route.slug} />}
       </div>
+      <Footer />
     </div>
   )
 }
@@ -94,39 +199,6 @@ function NotFound() {
     <Container className="py-24">
       <h1 className="text-3xl font-bold">Page not found</h1>
       <p className="mt-3 text-muted">This content may have moved.</p>
-    </Container>
-  )
-}
-
-function NewsList() {
-  return (
-    <Container className="pt-10">
-      <Eyebrow>Resources</Eyebrow>
-      <h1 className="mt-5 text-[36px] font-bold tracking-[-0.02em] lg:text-[48px]">News &amp; Insights</h1>
-      <p className="mt-4 max-w-[620px] text-muted">Manufacturing technology, industry trends and project insights from the EZHONG team.</p>
-      <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {news.map((n) => (
-          <li key={n.slug} className="group flex flex-col overflow-hidden rounded-2xl bg-surface">
-            <a href={`#/news/${n.slug}`} className="block aspect-[16/10] overflow-hidden" tabIndex={-1}>
-              <img src={n.image} alt={n.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
-            </a>
-            <div className="flex flex-1 flex-col p-7">
-              <p className="flex items-center gap-1.5 text-[13px] text-muted">
-                <Calendar className="h-3.5 w-3.5 text-accent" /> {formatDate(n.date)}
-              </p>
-              <h2 className="mt-3 text-lg leading-snug font-bold">
-                <a href={`#/news/${n.slug}`} className="hover:text-brand">
-                  {n.title}
-                </a>
-              </h2>
-              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">{n.summary}</p>
-              <div className="mt-auto pt-6">
-                <ReadMorePill href={`#/news/${n.slug}`} />
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
     </Container>
   )
 }
@@ -188,7 +260,7 @@ function IndustryPage({ slug }: { slug: string }) {
             <Button variant="accent" size="lg" onClick={() => openQuote({ industry: ind.name })}>
               Get a Quote <ArrowRight className="h-4 w-4" />
             </Button>
-            <a href="#industries" className="inline-flex h-13 items-center px-2 text-[15px] font-semibold text-brand hover:underline">
+            <a href="#/industries" className="inline-flex h-13 items-center px-2 text-[15px] font-semibold text-brand hover:underline">
               All industries
             </a>
           </div>
@@ -269,46 +341,6 @@ function ServicePage({ slug }: { slug: string }) {
           View all manufacturing services <ArrowRight className="h-4 w-4" />
         </a>
       </div>
-    </Container>
-  )
-}
-
-function CaseList() {
-  return (
-    <Container className="pt-10">
-      <Eyebrow>Customer Case Studies</Eyebrow>
-      <h1 className="mt-5 text-[36px] font-bold tracking-[-0.02em] lg:text-[48px]">Case Studies</h1>
-      <p className="mt-4 max-w-[680px] text-muted">
-        Manufacturing projects across medical, automotive, aerospace, new energy and electronics. Project metrics are
-        sample figures pending verification.
-      </p>
-      <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {caseStudies.map((c) => (
-          <li key={c.slug} className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-white">
-            <a href={`#/cases/${c.slug}`} className="relative block aspect-[16/10] overflow-hidden" tabIndex={-1}>
-              <img src={c.image} alt={c.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
-              <span className="absolute top-4 left-4 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">{c.process}</span>
-            </a>
-            <div className="flex flex-1 flex-col p-7">
-              <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">{c.industry}</p>
-              <h2 className="mt-2 text-lg leading-snug font-bold">
-                <a href={`#/cases/${c.slug}`} className="hover:text-accent">
-                  {c.title}
-                </a>
-              </h2>
-              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">{c.description}</p>
-              <p className="mt-auto flex gap-6 pt-6 text-sm">
-                <span>
-                  <strong className="text-ink">{c.quantity}</strong> <span className="text-muted">parts</span>
-                </span>
-                <span>
-                  <strong className="text-ink">{c.componentTypes}</strong> <span className="text-muted">component types</span>
-                </span>
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
     </Container>
   )
 }
