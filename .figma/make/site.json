@@ -1,0 +1,11 @@
+{
+  "title": "EZHONG | Precision CNC Machining & Custom Manufacturing Services",
+  "description": "Explore EZHONG’s CNC machining and custom manufacturing services, review industry solutions, and request quotes for precision parts and production.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
