@@ -38,7 +38,7 @@ export function Hero() {
       )}
       {/* Neutral charcoal overlay; kept light so the workshop footage stays visible */}
       {/* <div className="absolute inset-0 -z-10 " aria-hidden /> */}
-      <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#161718]/60 via-[#161718]/20 to-transparent" aria-hidden />
+      {/* <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#161718]/60 via-[#161718]/20 to-transparent" aria-hidden /> */}
 
       <div className="flex flex-1 items-center">
         <Container className="pt-28 pb-12 lg:pt-32">

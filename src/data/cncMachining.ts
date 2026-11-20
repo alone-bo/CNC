@@ -2,6 +2,7 @@
 // Copy is sample content for the EZHONG site — confirm specifications and
 // performance figures before publishing.
 
+import { asset } from '../lib/assets'
 import { unsplash } from './content'
 
 export const cncHero = {
@@ -42,8 +43,8 @@ export const cncBenefits: { icon: BenefitIcon; title: string; text: string }[] =
 ]
 
 export const cncBenefitMedia = {
-  video: '/videos/cnc-workshop.mp4',
-  poster: '/videos/cnc-workshop-poster.jpg',
+  video: asset('/videos/cnc-workshop.mp4'),
+  poster: asset('/videos/cnc-workshop-poster.jpg'),
   alt: 'Engineer operating CNC machines in a modern machining workshop',
   credit: 'Workshop footage · Pexels',
 }

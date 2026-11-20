@@ -13,7 +13,7 @@ export function WhyChoose() {
       id="about"
       aria-labelledby="why-title"
       className="relative isolate scroll-mt-16 overflow-hidden bg-[#1f2023] bg-cover bg-center lg:scroll-mt-20"
-      style={{ backgroundImage: `url(${unsplash('1647427060118-4911c9821b82', 2400)})` }}
+      style={{ backgroundImage: `url(${unsplash('1740209475472-aa7d280f7452', 2400)})` }}
     >
       {/* Light neutral wash keeps the workshop visible but calm behind the panel */}
       <div className="absolute inset-0 -z-10 bg-[#1b1c1e]/25" aria-hidden />

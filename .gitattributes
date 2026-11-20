@@ -144,3 +144,11 @@
 *.stl                filter=lfs diff=lfs merge=lfs -text
 *.nc                 filter=lfs diff=lfs merge=lfs -text
 *.mat                filter=lfs diff=lfs merge=lfs -text
+
+# ---------------------------------------------------------------------------
+# Deployed website assets
+# ---------------------------------------------------------------------------
+# Hosting platforms that clone the repo without Git LFS would receive pointer
+# files instead of images/videos. Keep everything under public/ in normal Git
+# storage so deployments always get the real files.
+public/**            -filter -diff -merge -text

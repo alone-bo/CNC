@@ -12,8 +12,19 @@ export default defineConfig(({ mode }) => {
   // .figma/make/deploy-preview passes `--mode development` for cached-preview builds.
   const emitSourcemaps = mode === 'development'
 
+  // Set VITE_BASE_PATH (for example `/cnc/`) when the app is served from a
+  // subdirectory. Public-folder assets resolve against the same base.
+  const envBase = process.env.VITE_BASE_PATH
+  const base = envBase
+    ? envBase === '/'
+      ? '/'
+      : `/${envBase.replace(/^\/+|\/+$/g, '')}/`
+    : process.env.FIGMA_PUBLIC_URL
+      ? `${process.env.FIGMA_PUBLIC_URL}/`
+      : '/'
+
   return {
-    base: process.env.FIGMA_PUBLIC_URL ? `${process.env.FIGMA_PUBLIC_URL}/` : '/',
+    base,
     build: {
       sourcemap: emitSourcemaps ? 'inline' : false,
       minify: !emitSourcemaps,
@@ -92,7 +103,7 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
   const description = config.description ?? ''
   // Imported HTML keeps its own favicon. New Makes use PNG because Google Search does not
   // support SVG favicons, even though browsers do.
-  const favicon = config.icons?.icon ?? '/favicon.png'
+  const favicon = config.icons?.icon ?? 'favicon.png'
   const socialImage = config.openGraph?.image ?? ''
   const language = sanitizeHtmlValue(config.language) || 'en'
   const googleAnalyticsId = sanitizeHtmlValue(config.analytics?.googleAnalyticsId)

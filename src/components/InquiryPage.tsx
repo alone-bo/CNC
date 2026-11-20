@@ -1,6 +1,7 @@
 import { useRef, useState, type DragEvent, type FormEvent } from 'react'
 import { ChevronDown, CircleCheck, FileUp, Mail, Phone, X } from 'lucide-react'
 import { company, industries } from '../data/content'
+import { asset } from '../lib/assets'
 import { useUI } from '../lib/ui'
 import { Button } from './primitives'
 import { DetailContainer } from './ServiceDetailShared'
@@ -92,7 +93,7 @@ export function InquiryPage() {
     <>
       <section className="relative isolate overflow-hidden bg-[#0b1118]">
         <img
-          src="/images/about/typing-hero.jpg"
+          src={asset('/images/about/typing-hero.jpg')}
           alt="Hands typing a request on a laptop keyboard"
           className="absolute inset-0 -z-20 h-full w-full object-cover"
         />

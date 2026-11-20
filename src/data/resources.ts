@@ -1,5 +1,6 @@
 // Content for the four Resources pages: Blogs, Case Study, News and Videos.
 
+import { asset } from '../lib/assets'
 import { news, unsplash, type NewsItem } from './content'
 
 export type ResourceHero = {
@@ -40,7 +41,7 @@ export const resourceHeroes = {
     title: 'Inside EZHONG: Manufacturing in Motion',
     description:
       'Watch CNC machining, laser cutting and tooling up close — short films from our workshop showing how drawings become production-ready parts.',
-    image: '/videos/videos-hero.jpg',
+    image: asset('/videos/videos-hero.jpg'),
     alt: 'CNC end mill cutting a metal plate with coolant flowing',
   },
 } satisfies Record<string, ResourceHero>
@@ -68,8 +69,8 @@ export const videoLibrary: VideoItem[] = [
       'A close-up of an end mill cutting a clamped plate, with coolant clearing chips and controlling heat at the cutting edge.',
     category: 'Machining',
     duration: '0:14',
-    poster: '/videos/cnc-coolant-poster.jpg',
-    src: '/videos/cnc-coolant.mp4',
+    poster: asset('/videos/cnc-coolant-poster.jpg'),
+    src: asset('/videos/cnc-coolant.mp4'),
     alt: 'CNC end mill cutting a metal plate with coolant flowing from nozzles',
   },
   {
@@ -79,8 +80,8 @@ export const videoLibrary: VideoItem[] = [
       'Fine passes and a rigid setup on a high-precision machining center, typical of tight-tolerance production work.',
     category: 'Precision',
     duration: '0:14',
-    poster: '/videos/cnc-high-precision-poster.jpg',
-    src: '/videos/cnc-high-precision.mp4',
+    poster: asset('/videos/cnc-high-precision-poster.jpg'),
+    src: asset('/videos/cnc-high-precision.mp4'),
     alt: 'Cutting tool finishing a pocket in a metal workpiece on a CNC machine',
   },
   {
@@ -90,8 +91,8 @@ export const videoLibrary: VideoItem[] = [
       'Tool changes, cutting passes and the finish left behind — a short look at the subtractive process behind custom metal parts.',
     category: 'Metalworking',
     duration: '0:29',
-    poster: '/videos/cnc-metalworking-poster.jpg',
-    src: '/videos/cnc-metalworking.mp4',
+    poster: asset('/videos/cnc-metalworking-poster.jpg'),
+    src: asset('/videos/cnc-metalworking.mp4'),
     alt: 'CNC spindle and tool holder machining a metal component',
   },
   {
@@ -101,8 +102,8 @@ export const videoLibrary: VideoItem[] = [
       'A flat-bed laser cutter profiling sheet metal for brackets, panels and enclosures before forming and finishing.',
     category: 'Fabrication',
     duration: '1:03',
-    poster: '/videos/laser-cutting-poster.jpg',
-    src: '/videos/laser-cutting.mp4',
+    poster: asset('/videos/laser-cutting-poster.jpg'),
+    src: asset('/videos/laser-cutting.mp4'),
     alt: 'Laser cutting head moving across a sheet of metal on a cutting bed',
   },
   {
@@ -112,8 +113,8 @@ export const videoLibrary: VideoItem[] = [
       'Workholding, tool offsets and a first pass — the setup steps that determine repeatability for the rest of the batch.',
     category: 'Milling',
     duration: '0:36',
-    poster: '/videos/cnc-milling-operator-poster.jpg',
-    src: '/videos/cnc-milling-operator.mp4',
+    poster: asset('/videos/cnc-milling-operator-poster.jpg'),
+    src: asset('/videos/cnc-milling-operator.mp4'),
     alt: 'CNC milling machine cutting a clamped metal workpiece',
   },
   {
@@ -123,8 +124,8 @@ export const videoLibrary: VideoItem[] = [
       'A short montage of cutting tools and machine motion from the workshop floor, from roughing passes to fine detail.',
     category: 'Tooling',
     duration: '1:00',
-    poster: '/videos/machining-tools-poster.jpg',
-    src: '/videos/machining-tools.mp4',
+    poster: asset('/videos/machining-tools-poster.jpg'),
+    src: asset('/videos/machining-tools.mp4'),
     alt: 'Cutting tool carving a curved channel into a metal surface',
   },
 ]

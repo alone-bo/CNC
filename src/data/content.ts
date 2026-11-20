@@ -778,29 +778,35 @@ export const news: NewsItem[] = [
 export const footerGroups = [
   {
     title: 'Manufacturing Capabilities',
-    links: services.map((s) => ({ label: s.title, href: `#/services/${s.slug}` })),
-  },
-  {
-    title: 'Resources',
     links: [
-      { label: 'Materials', href: '#/services/cnc-machining' },
-      { label: 'Surface Finishing', href: '#/services/cnc-machining' },
-      { label: 'Manufacturing Blog', href: '#/blogs' },
-      { label: 'Case Studies', href: '#/cases' },
-      { label: 'News & Insights', href: '#/news' },
-      { label: 'Videos', href: '#/videos' },
-      { label: 'FAQ', href: '#/faq' },
+      { label: 'All Services', href: '#/services' },
+      { label: 'CNC Machining', href: '#/services/cnc-machining' },
+      { label: 'CNC Aluminum', href: '#/services/cnc-aluminum' },
+      { label: 'CNC Milling', href: '#/services/cnc-milling' },
+      { label: 'Sheet Metal Fabrication', href: '#/services/sheet-metal-fabrication' },
+      { label: '3D Printing', href: '#/services/3d-printing' },
     ],
   },
   {
-    title: 'About EZHONG',
+    title: 'Solutions & Industries',
     links: [
-      { label: 'About Us', href: '#/about' },
-      { label: 'Manufacturing Capabilities', href: '#services' },
+      { label: 'All Solutions', href: '#/solutions' },
+      { label: 'CNC Prototyping', href: '#/solutions/cnc-prototyping' },
+      { label: 'CNC Production', href: '#/solutions/cnc-production' },
+      { label: 'All Industries', href: '#/industries' },
+      { label: 'Aerospace', href: '#/industries/aerospace' },
+      { label: 'Automotive', href: '#/industries/automotive' },
+    ],
+  },
+  {
+    title: 'Company & Resources',
+    links: [
+      { label: 'About EZHONG', href: '#/about' },
       { label: 'Quality Assurance', href: '#/quality-assurance' },
-      { label: 'Industries', href: '#/industries' },
+      { label: 'Blogs', href: '#/blogs' },
+      { label: 'Case Studies', href: '#/cases' },
+      { label: 'FAQ', href: '#/faq' },
       { label: 'Contact Us', href: '#/inquiry' },
-      { label: 'Careers', href: '#contact' },
     ],
   },
 ]

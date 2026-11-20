@@ -1,9 +1,12 @@
 // Content for the About, Testimonials, Quality Assurance and FAQ pages.
 // All figures and quotes are editable sample content pending verification.
 
+import { asset } from '../lib/assets'
 import { unsplash } from './content'
 
 export type ImageAsset = { src: string; alt: string }
+
+const aboutImage = (file: string) => asset(`/images/about/${file}`)
 
 /* ------------------------------------------------------------------ */
 /* About                                                              */
@@ -19,7 +22,7 @@ export const aboutHero = {
       src: unsplash('1740209475472-aa7d280f7452', 2000),
       alt: 'CNC machining center cutting a clamped metal component',
     },
-    { src: '/images/about/team-collaboration.jpg', alt: 'EZHONG engineers reviewing a part together in the workshop' },
+    { src: aboutImage('team-collaboration.jpg'), alt: 'EZHONG engineers reviewing a part together in the workshop' },
   ] as ImageAsset[],
 }
 
@@ -41,7 +44,7 @@ export const aboutIntro = {
   video: {
     poster: unsplash('1581094488379-6a10d04c0f04', 1600),
     alt: 'Engineers reviewing a technical drawing together at a workbench',
-    src: '/videos/cnc-metalworking.mp4',
+    src: asset('/videos/cnc-metalworking.mp4'),
     label: 'Watch our company film',
   },
 }
@@ -163,25 +166,25 @@ export const aboutTeam = {
   roles: [
     {
       role: 'Project Manager',
-      image: '/images/about/tablet-review.jpg',
+      image: aboutImage('tablet-review.jpg'),
       alt: 'EZHONG project team reviewing production details on a tablet',
       points: ['Single point of contact', 'Schedule and DFM review', 'Milestone updates'],
     },
     {
       role: 'Product Engineer',
-      image: '/images/about/design-review.jpg',
+      image: aboutImage('design-review.jpg'),
       alt: 'EZHONG engineer checking a component against production requirements',
       points: ['CAD and drawing review', 'Material and tolerance guidance', 'Inspection planning'],
     },
     {
       role: 'Production Team',
-      image: '/images/about/cnc-operator.jpg',
+      image: aboutImage('cnc-operator.jpg'),
       alt: 'CNC operator setting up a machining center',
       points: ['CNC machining and fabrication', 'Setup and in-process checks', 'Finishing coordination'],
     },
     {
       role: 'Quality Control',
-      image: '/images/about/micrometer.jpg',
+      image: aboutImage('micrometer.jpg'),
       alt: 'Digital micrometer measuring the thickness of a machined metal part',
       points: ['First-article inspection', 'CMM and dimensional reports', 'Final release documentation'],
     },
@@ -235,12 +238,12 @@ export const aboutWhy = {
 }
 
 export const aboutGallery: ImageAsset[] = [
-  { src: '/images/about/team-collaboration.jpg', alt: 'Engineers discussing a machining setup in the workshop' },
-  { src: '/images/about/cnc-operator.jpg', alt: 'Operator setting up a CNC machining center' },
-  { src: '/images/about/design-review.jpg', alt: 'Production engineer reviewing a part at a workbench' },
-  { src: '/images/about/micrometer.jpg', alt: 'Digital micrometer checking a machined metal edge' },
-  { src: '/images/about/tablet-review.jpg', alt: 'Shop floor team reviewing production data together' },
-  { src: '/images/about/factory-team.jpg', alt: 'Manufacturing team walking through the production floor' },
+  { src: aboutImage('team-collaboration.jpg'), alt: 'Engineers discussing a machining setup in the workshop' },
+  { src: aboutImage('cnc-operator.jpg'), alt: 'Operator setting up a CNC machining center' },
+  { src: aboutImage('design-review.jpg'), alt: 'Production engineer reviewing a part at a workbench' },
+  { src: aboutImage('micrometer.jpg'), alt: 'Digital micrometer checking a machined metal edge' },
+  { src: aboutImage('tablet-review.jpg'), alt: 'Shop floor team reviewing production data together' },
+  { src: aboutImage('factory-team.jpg'), alt: 'Manufacturing team walking through the production floor' },
   { src: unsplash('1713371398479-4410ca153b1f', 1200), alt: 'Dial indicator checking a precision machined component' },
   { src: unsplash('1624841970647-87dce8628d72', 1200), alt: 'CNC-machined aluminum components after production' },
 ]
@@ -280,7 +283,7 @@ export const qualityIntro = {
     { title: 'Material Traceability Policy', note: 'Mill certificates and lot records' },
   ],
   image: {
-    src: '/images/about/design-review.jpg',
+    src: aboutImage('design-review.jpg'),
     alt: 'Quality engineer reviewing a manufactured component in the workshop',
   },
 }
@@ -321,7 +324,7 @@ export const qualityProcedures = {
   intro:
     'Four checkpoints follow every order. The depth of inspection scales with the drawing, the material and the consequence of a missed feature.',
   image: {
-    src: '/images/about/micrometer.jpg',
+    src: aboutImage('micrometer.jpg'),
     alt: 'Gloved technician measuring a machined part with a digital micrometer',
   },
   steps: [
@@ -409,7 +412,7 @@ export const qualityCapabilities = {
     {
       title: 'Dimensional Measurement',
       text: 'Calipers, micrometers and height gauges for routine feature checks, with resolution to 0.001 mm on critical dimensions.',
-      image: '/images/about/micrometer.jpg',
+      image: aboutImage('micrometer.jpg'),
       alt: 'Digital micrometer measuring a metal part',
     },
     {
@@ -446,16 +449,16 @@ export const qualityCapabilities = {
 }
 
 export const qualityGallery: ImageAsset[] = [
-  { src: '/images/about/micrometer.jpg', alt: 'Micrometer measuring a machined metal edge' },
-  { src: '/images/about/design-review.jpg', alt: 'Quality engineer checking a component at a workbench' },
-  { src: '/images/about/tablet-review.jpg', alt: 'Inspection team reviewing results on a tablet' },
+  { src: aboutImage('micrometer.jpg'), alt: 'Micrometer measuring a machined metal edge' },
+  { src: aboutImage('design-review.jpg'), alt: 'Quality engineer checking a component at a workbench' },
+  { src: aboutImage('tablet-review.jpg'), alt: 'Inspection team reviewing results on a tablet' },
   { src: unsplash('1713371398479-4410ca153b1f', 1200), alt: 'Dial indicator checking a round machined component' },
   {
     src: unsplash('1624841970647-87dce8628d72', 1200),
     alt: 'Machined aluminum component ready for dimensional inspection',
   },
   { src: unsplash('1582143434535-eba55a806718', 1200), alt: 'Optical components inspected for surface and profile' },
-  { src: '/images/about/team-collaboration.jpg', alt: 'Engineers discussing inspection results in the workshop' },
+  { src: aboutImage('team-collaboration.jpg'), alt: 'Engineers discussing inspection results in the workshop' },
   { src: unsplash('1625465837903-0e4d77bcc467', 1200), alt: 'Finished black component checked for surface quality' },
 ]
 
@@ -469,7 +472,7 @@ export const testimonialsHero = {
   description:
     'Long-term engineering partnerships are built on clear communication, repeatable quality and parts that arrive when promised. Here is what our customers tell us.',
   images: [
-    { src: '/images/about/tablet-review.jpg', alt: 'Manufacturing team reviewing production details together' },
+    { src: aboutImage('tablet-review.jpg'), alt: 'Manufacturing team reviewing production details together' },
   ] as ImageAsset[],
 }
 
@@ -549,7 +552,7 @@ export const faqHero = {
   description:
     'Answers to the questions engineers and buyers ask most often — from quoting and materials to tolerances, inspection and international shipping.',
   images: [
-    { src: '/images/about/cnc-operator.jpg', alt: 'CNC operator setting up a production machining center' },
+    { src: aboutImage('cnc-operator.jpg'), alt: 'CNC operator setting up a production machining center' },
   ] as ImageAsset[],
 }
 
